@@ -1,22 +1,19 @@
 package com.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class HelloWorld {
 
-    private String message;
+    private Message message;
 
+    @SuppressWarnings("unchecked")
     public void getMessage() {
-        System.out.println("the message is: " + message);
+        System.out.println("inner message");
     }
 
-    public void setMessage(String message) {
+    @Autowired
+    @SuppressWarnings("unchecked")
+    public void setMessage(Message message) {
         this.message = message;
-    }
-
-    private void init() {
-        System.out.println("Hello World Init !");
-    }
-
-    private void destroy() {
-        System.out.println("Hello World Destroy !");
     }
 }

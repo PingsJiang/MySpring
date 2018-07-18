@@ -8,15 +8,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
-    @Autowired
-    MyService myService;
 
     public static void main(String[] args) {
 
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 
         HelloWorld hw = (HelloWorld) context.getBean("helloWorld");
-        //hw.getMessage();
+        hw.getMessage();
 //        new Main().myService.multi(1,2);
         context.registerShutdownHook();
     }
