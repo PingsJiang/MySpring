@@ -2,8 +2,12 @@ package com.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class HelloWorld {
 
+    @Autowired
     private Message message;
 
     @SuppressWarnings("unchecked")
@@ -11,9 +15,15 @@ public class HelloWorld {
         System.out.println("inner message");
     }
 
-    @Autowired
-    @SuppressWarnings("unchecked")
-    public void setMessage(Message message) {
-        this.message = message;
+    @PostConstruct
+    private void init() {
+        System.out.println("Init HelloWorld");
     }
+
+    @PreDestroy
+    private void destroy() {
+        System.out.println("Destroy HelloWorld");
+    }
+
+
 }
